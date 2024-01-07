@@ -10,13 +10,19 @@
 <body>
     <div class="box" id="box">
     <div class="blackbox">
+        <div class="shuffle">
+            <button id="shufflebtn"></button>
+
+        </div>
         <div class="controls">
             <button id="prbtn" class="ctrlbtn" onclick="pre()"><<</button>
             <button id="pbtn" onclick="pclick()">▶</button>
             <button id="nxtbtn"  class="ctrlbtn" onclick="nxt()">>></button>
         </div>
         <div class="volume">
-            
+            <button id="mbtn" onclick="mute()">🔇</button>
+            <input type="range" min="0" max="1" step="0.01" value="0.2" style="width: 5em;height: 7.5em;" oninput="volume(this.value)"/>
+
         </div>
     </div>
     </div>

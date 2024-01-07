@@ -4,9 +4,8 @@ body{
 
 .box
 {
-    margin-left: 25%;
-    width: 50%;
-    height: 20em;
+    width: 100%;
+    height: 40em;
     background-color: rgb(33, 28, 28) ;
     border-radius: 5px;
     display: flex;
@@ -32,7 +31,7 @@ body{
 }
 .blackbox
 {
-    margin-top: 15em;
+    margin-top: 30em;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -42,25 +41,27 @@ body{
 }
 .controls
 {
-    margin-top: 2em;
+    margin-top: 5em;
+    margin-left: -10px;
+    
 }
 #pbtn
 {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     background-color: black;
     color:rgb(81, 212, 61);
-    font-size: large;
+    font-size: 35px;
     font-weight:bolder;
     border: 1px solid rgb(33, 28, 28) ;
     border-radius: 50%;
-    padding:3px 3px 0px 6px;
+    padding:4px 3px 0px 10px;
 }
 
-#pbtn:hover
+#pbtn:active
 {
-    background-color: rgb(20,20,20) ;
-
+    background-color: rgb(51, 87, 51) ;
+    
 }
 .ctrlbtn
 {
@@ -76,4 +77,34 @@ body{
 .ctrlbtn:active
 {
     color: black;
+}
+.shuffle
+{
+    background-color: transparent;
+    margin-left: 25%;
+    height:20% ;
+    margin-top: 6.3em;
+    
+}
+#shufflebtn
+{
+height: 100%;
+background-color: transparent;
+color: rgb(81, 212, 61);
+border: 1px solid transparent;
+}
+.volume
+{
+    background-color:transparent;
+    width: 35%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6.3em;
+}
+#mbtn
+{
+    background-color: transparent;
+    border: 1px solid black;
 }

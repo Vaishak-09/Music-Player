@@ -27,16 +27,20 @@ function play()
     audio.volume=vol;
     document.getElementById("pbtn").innerHTML="| |";
     document.getElementById("pbtn").style.padding="1px 3px 1px 3px";
+    document.getElementById("pbtn").style.fontSize="25px";
+
     audio.play() ;
     pflag=1;
-    document.getElementById("box").style.animation="panimation 4s infinite";
+    document.getElementById("box").style.animation="panimation 1s infinite";
     
 }
 function pause()
 {
     audio.pause();
     document.getElementById("pbtn").innerHTML="▶";
-    document.getElementById("pbtn").style.padding="3px 3px 0px 6px";
+    document.getElementById("pbtn").style.padding="4px 3px 0px 10px";
+    document.getElementById("pbtn").style.fontSize="35px";
+
     pflag=0;
     document.getElementById("box").style.animation="";
 
@@ -73,6 +77,7 @@ function volume(v)
 {
     vol=v;
     audio.volume=vol;
+    mflag=0;
 }
 function mute()
 {
