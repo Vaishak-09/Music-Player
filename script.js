@@ -1,4 +1,4 @@
-let mflag=0,pflag=0,fflag=0,vol=0.2;
+let mflag=0,pflag=0,fflag=0,vol=0.2,avol=2;
 let audio,i=0;
 function selectaudio(i)
 {
@@ -31,8 +31,11 @@ function play()
 
     audio.play() ;
     pflag=1;
-    document.getElementById("box").style.animation="panimation 1s infinite";
-    
+    document.getElementById("box").style.animationName="panimation";
+    document.getElementById("box").style.animationDuration=avol+"s";
+    document.getElementById("box").style.animationIterationCount="infinite";
+
+
 }
 function pause()
 {
@@ -67,11 +70,6 @@ function nxt()
     audio=selectaudio(i);
     play();
 }
-
-
-
-
-
 
 function volume(v)
 {
