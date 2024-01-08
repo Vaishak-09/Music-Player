@@ -5,7 +5,7 @@ body{
 .box
 {
     width: 100%;
-    height: 40em;
+    height: 190vw;
     background-color: rgb(33, 28, 28) ;
     border-radius: 5px;
     display: flex;
@@ -29,20 +29,38 @@ body{
 
     }
 }
+.seekbar
+{
+    background-color: rgba(255, 145, 0, 0);
+    height: fit-content;
+    width: 97%;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    
+}
+#seekbar
+{
+    width: 90%;
+    
+}
 .blackbox
 {
-    margin-top: 30em;
+    margin-top: 35.2em;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     background-color: black;
-    height: 25%;
+    height: 16vh;
     width: 100%;
 }
+
 .controls
 {
-    margin-top: 5em;
-    margin-left: -25px;
+    background-color: rgba(0, 255, 255, 0);
+    padding-top: 3em;
+    padding-left: 4em;
     
 }
 #pbtn
@@ -76,26 +94,14 @@ body{
     border: 1px solid rgb(33, 28, 28) ;
     border-radius: 50%;
     padding:2px 3px 1px 5px;
+    
+    
 }
 .ctrlbtn:active
 {
     color: black;
 }
-.shuffle
-{
-    background-color: transparent;
-    margin-left: 25%;
-    height:20% ;
-    margin-top: 6.3em;
-    
-}
-#shufflebtn
-{
-height: 100%;
-background-color: transparent;
-color: rgb(81, 212, 61);
-border: 1px solid transparent;
-}
+
 .volume
 {
     background-color:transparent;
@@ -104,7 +110,7 @@ border: 1px solid transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 6.3em;
+    margin-top: 4.5em;
 }
 #mbtn
 {

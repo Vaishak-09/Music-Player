@@ -1,5 +1,7 @@
-let mflag=0,pflag=0,fflag=0,vol=0.2,avol=2;
+let mflag=0,pflag=0,fflag=0,vol=0.2,avol=2,val=1,duration;
 let audio,i=0;
+document.getElementById("seekbar").value=val;
+
 function selectaudio(i)
 {
     let songs=["audio1.mp3","audio2.mp3","audio3.mp3","audio4.mp3","audio5.mp3"]
@@ -22,7 +24,7 @@ function pclick()
         pause();
     }   
 }
-function play()
+function play()     
 {
     audio.volume=vol;
     document.getElementById("pbtn").innerHTML="| |";
@@ -90,4 +92,12 @@ function mute()
         mflag=0;
     }
    
+}
+
+function changeseek()
+{
+val=val+0.01;
+document.getElementById("seekbar").value=val;
+
+changeseek();
 }

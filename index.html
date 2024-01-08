@@ -10,9 +10,8 @@
 <body>
     <div class="box" id="box">
     <div class="blackbox">
-        <div class="shuffle">
-            <button id="shufflebtn"></button>
-
+        <div class="seekbar">
+            <input type="range" id="seekbar" min="0" max="100" step="0.1" onchange="changeseek()" />
         </div>
         <div class="controls">
             <button id="prbtn" class="ctrlbtn" onclick="pre()"><<</button>
