@@ -1,11 +1,12 @@
-let mflag=0,pflag=0,fflag=0,vol=0.2,avol=2,val=1,duration;
-let audio,i=0;
-document.getElementById("seekbar").value=val;
-
+let mflag=0,pflag=0,fflag=0,vol=0.2,avol=1,sval=0,dur=0,i=0;
+let audio=new Audio(),songs;
 function selectaudio(i)
 {
-    let songs=["audio1.mp3","audio2.mp3","audio3.mp3","audio4.mp3","audio5.mp3"]
-    return new Audio(songs[i]);
+    songs=["audio1.mp3","audio2.mp3","audio3.mp3","audio4.mp3","audio5.mp3"]
+    document.getElementById("seekbar").value=0;
+    audio=new Audio(songs[i]);
+    audio.currentTime=0;
+    return audio;
 
 }
 function pclick()
@@ -13,10 +14,12 @@ function pclick()
     if(fflag==0)
     {
         audio=selectaudio(i);
+        document.getElementById("seekbar").value=sval;
         fflag=1;
     }
     if(pflag==0)
     {
+        audio.currentTime=sval;
         play();
     } 
     else if(pflag==1)
@@ -25,34 +28,35 @@ function pclick()
     }   
 }
 function play()     
-{
+{  
+    audio.play()
     audio.volume=vol;
+    dur=audio.duration;
+    console.log(dur);
+    document.getElementById("seekbar").max=dur;
     document.getElementById("pbtn").innerHTML="| |";
     document.getElementById("pbtn").style.padding="1px 3px 1px 3px";
     document.getElementById("pbtn").style.fontSize="25px";
-
-    audio.play() ;
     pflag=1;
     document.getElementById("box").style.animationName="panimation";
     document.getElementById("box").style.animationDuration=avol+"s";
     document.getElementById("box").style.animationIterationCount="infinite";
 
-
 }
 function pause()
 {
-    audio.pause();
+    audio.pause()
     document.getElementById("pbtn").innerHTML="▶";
     document.getElementById("pbtn").style.padding="4px 3px 0px 10px";
     document.getElementById("pbtn").style.fontSize="35px";
-
     pflag=0;
     document.getElementById("box").style.animation="";
+   
 
 }
 function pre()
 {
-    audio.pause();
+    audio.pause()
     i=i-1;
     if(i<0)
     {
@@ -63,7 +67,7 @@ function pre()
 }
 function nxt()
 {
-    audio.pause();
+    audio.pause()
     i=i+1;
     if(i>4)
     {
@@ -78,6 +82,9 @@ function volume(v)
     vol=v;
     audio.volume=vol;
     mflag=0;
+    avol=1.2-vol;
+    document.getElementById("box").style.animationDuration=avol+"s";
+
 }
 function mute()
 {
@@ -94,10 +101,13 @@ function mute()
    
 }
 
-function changeseek()
+function seekaudio(val)
 {
-val=val+0.01;
-document.getElementById("seekbar").value=val;
-
-changeseek();
+audio.currentTime=val;
+sval=val;
+console.log(sval);
+}
+function stopseek()
+{
+    document.getElementById("seekbar").value=val;
 }

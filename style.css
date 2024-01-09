@@ -44,6 +44,7 @@ body{
 {
     width: 90%;
     
+    
 }
 .blackbox
 {
@@ -54,6 +55,7 @@ body{
     background-color: black;
     height: 16vh;
     width: 100%;
+    
 }
 
 .controls
@@ -111,6 +113,11 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 4.5em;
+}
+#vbtn
+{
+    width: 5em;
+    height: 7.5em;
 }
 #mbtn
 {
