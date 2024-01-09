@@ -2,10 +2,10 @@ let mflag=0,pflag=0,fflag=0,vol=0.2,avol=1,sval=0,dur=0,i=0;
 let audio=new Audio(),songs;
 function selectaudio(i)
 {
-    songs=["audio1.mp3","audio2.mp3","audio3.mp3","audio4.mp3","audio5.mp3"]
+    songs=["audio1.mp3","audio2.mp3","audio3.mp3","audio4.mp3","audio5.mp3","audio6.mp3","audio7.mp3"]
     document.getElementById("seekbar").value=0;
     audio=new Audio(songs[i]);
-    audio.currentTime=0;
+
     return audio;
 
 }
@@ -13,13 +13,14 @@ function pclick()
 {
     if(fflag==0)
     {
-        audio=selectaudio(i);
+        
+        audio=selectaudio(0);
         document.getElementById("seekbar").value=sval;
+        seekanimation();
         fflag=1;
     }
     if(pflag==0)
     {
-        audio.currentTime=sval;
         play();
     } 
     else if(pflag==1)
@@ -29,11 +30,9 @@ function pclick()
 }
 function play()     
 {  
+    audio.currentTime=document.getElementById("seekbar").value;
     audio.play()
     audio.volume=vol;
-    dur=audio.duration;
-    console.log(dur);
-    document.getElementById("seekbar").max=dur;
     document.getElementById("pbtn").innerHTML="| |";
     document.getElementById("pbtn").style.padding="1px 3px 1px 3px";
     document.getElementById("pbtn").style.fontSize="25px";
@@ -60,7 +59,7 @@ function pre()
     i=i-1;
     if(i<0)
     {
-        i=4;
+        i=6;
     }
     audio=selectaudio(i);
     play();
@@ -69,7 +68,7 @@ function nxt()
 {
     audio.pause()
     i=i+1;
-    if(i>4)
+    if(i>6)
     {
         i=0;
     }
@@ -82,7 +81,7 @@ function volume(v)
     vol=v;
     audio.volume=vol;
     mflag=0;
-    avol=1.2-vol;
+    avol=(1.2-vol)/vol;
     document.getElementById("box").style.animationDuration=avol+"s";
 
 }
@@ -91,11 +90,13 @@ function mute()
     if(mflag==0)
     {
     audio.volume=0;
+    document.getElementById("box").style.animationDuration="100s";
     mflag=1;
     }
     else if(mflag==1)
     {
         audio.volume=vol;
+        document.getElementById("box").style.animationDuration=avol+"s";
         mflag=0;
     }
    
@@ -105,9 +106,12 @@ function seekaudio(val)
 {
 audio.currentTime=val;
 sval=val;
-console.log(sval);
 }
-function stopseek()
+function seekanimation()
 {
-    document.getElementById("seekbar").value=val;
+    dur=audio.duration;
+    document.getElementById("seekbar").max=dur;
+    let ct=audio.currentTime;
+    document.getElementById("seekbar").value=ct;
+    setTimeout(seekanimation,1000);
 }
